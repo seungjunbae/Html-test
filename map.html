@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JUN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <style>
+  html, body {
+  	margin: 0;
+  	padding: 0;
+  	height: 100%;
+  }
+  .header {
+    height: 200px;
+    background-image:url('./sea.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: relative;
+
+  }
+  .footer {
+    height: 20px;
+    background: grey;
+    position: relative;
+    margin-bottom: 0px;
+    font-size: 13px;
+    text-align: right;
+  }
+  .title {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+  }
+  section {
+    text-align: center;
+    min-height: 100%;
+  }
+  #map {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="title" >
+      <h3>안녕하세요!</h3>
+      <h3>저는 배승준 입니다.</h3>
+    </div>
+  </header>
+
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">JUN</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="profile.html">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="gallery.html">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="map.html">Map</a>
+      </li>
+    </ul>
+  </nav>
+  <section>
+    <h1>우리 동네</h1>
+
+    <div id="map" style="width:80%; height: 500px;"></div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLjIoT-
+    9pp0yevQyt7bKmFReDHQgH4SNw&callback=initMap&region=kr"></script>
+
+
+    <script>
+    function initMap() {
+      var myHome = {lat:37.348929, lng:127.341182};
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 15,
+          center: myHome
+        });
+        new google.maps.Marker({
+          position: myHome,
+          map: map,
+          label: "우리 동네"
+        });
+      }
+    </script>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <p>made by SeungJun</p>
+    </div>
+  </footer>
+
+</body>
+</html>
